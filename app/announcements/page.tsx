@@ -13,7 +13,7 @@ export default async function AnnouncementsPage() {
 
   return (
     <div className="mx-auto flex w-full max-w-5xl flex-1 flex-col gap-6 px-4 py-8 sm:px-8 sm:py-12">
-      <header className="rounded-3xl border bg-card/70 p-6 shadow-sm backdrop-blur sm:p-8">
+      <header className="rounded-3xl border bg-card/70 p-6 shadow-sm backdrop-blur motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-3 motion-safe:duration-700 sm:p-8">
         <Badge variant="outline" className="mb-3">
           お知らせ
         </Badge>
@@ -25,13 +25,13 @@ export default async function AnnouncementsPage() {
 
       <section className="grid gap-4">
         {announcements.map((item) => (
-          <article key={item.slug} className="rounded-2xl border border-foreground/10 bg-card p-5 shadow-xs sm:p-6">
+          <article className="rounded-2xl border border-foreground/10 bg-card p-5 shadow-xs transition-all duration-300 motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-4 hover:-translate-y-1 hover:shadow-md sm:p-6" key={item.slug}>
             <header>
               <p className="text-xs text-muted-foreground">{item.date}</p>
               <h2 className="mt-1 text-xl font-semibold">
                 <Link
                   href={`/announcements/${item.slug}`}
-                  className="underline-offset-4 hover:underline"
+                  className="underline-offset-4 transition-colors duration-200 hover:text-primary hover:underline"
                 >
                   {item.title}
                 </Link>

@@ -30,7 +30,7 @@ export default function Home() {
     <div className="relative flex min-h-full flex-1 flex-col overflow-x-clip bg-background">
       <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[380px] bg-gradient-to-b from-emerald-200/40 via-sky-200/25 to-transparent blur-3xl dark:from-emerald-500/20 dark:via-sky-500/20" />
       <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-8 px-4 py-8 sm:gap-10 sm:px-8 sm:py-14">
-        <section className="rounded-3xl border bg-card/70 p-6 shadow-sm backdrop-blur sm:p-10">
+        <section className="rounded-3xl border bg-card/70 p-6 shadow-sm backdrop-blur motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-3 motion-safe:duration-700 sm:p-10">
           <Badge variant="outline" className="mb-4 max-w-full text-[11px] sm:text-xs">
             Takasumi-Neodyマイクラサーバプロジェクト接続ガイド
           </Badge>
@@ -42,7 +42,13 @@ export default function Home() {
             統合版のどちらにも対応しています。
           </p>
           <div className="mt-6">
-            <Link href="/announcements" className={cn(buttonVariants({ variant: "outline" }))}>
+            <Link
+              href="/announcements"
+              className={cn(
+                buttonVariants({ variant: "outline" }),
+                "transition-transform duration-200 hover:-translate-y-0.5"
+              )}
+            >
               お知らせを見る
             </Link>
           </div>
@@ -54,7 +60,7 @@ export default function Home() {
             return (
               <article
                 key={server.name}
-                className="rounded-2xl border border-foreground/10 bg-card p-5 shadow-xs sm:p-6"
+                className="rounded-2xl border border-foreground/10 bg-card p-5 shadow-xs transition-all duration-300 motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-4 hover:-translate-y-1 hover:shadow-md sm:p-6"
               >
                 <header>
                   <div className="mb-2 flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between sm:gap-3">
@@ -90,7 +96,7 @@ export default function Home() {
           })}
         </section>
 
-        <section className="rounded-3xl border bg-card p-6 shadow-sm sm:p-8">
+        <section className="rounded-3xl border bg-card p-6 shadow-sm motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-2 motion-safe:duration-700 sm:p-8">
           <h2 className="text-xl font-semibold">接続手順</h2>
           <Separator className="my-4" />
           <ol className="space-y-3 text-sm leading-7 sm:text-base">
