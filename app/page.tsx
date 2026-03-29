@@ -1,17 +1,10 @@
 "use client";
 
 import { ExternalLink, Pickaxe, Sprout, Wifi } from "lucide-react";
+import Link from "next/link";
 
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 
@@ -48,14 +41,22 @@ export default function Home() {
             サーバー追加画面で下記アドレスを入力してください。Java版 と
             統合版のどちらにも対応しています。
           </p>
+          <div className="mt-6">
+            <Link href="/announcements" className={cn(buttonVariants({ variant: "outline" }))}>
+              お知らせを見る
+            </Link>
+          </div>
         </section>
 
         <section className="grid gap-4 md:grid-cols-2">
           {servers.map((server) => {
             const Icon = server.icon;
             return (
-              <Card key={server.name} className="border-foreground/10">
-                <CardHeader>
+              <article
+                key={server.name}
+                className="rounded-2xl border border-foreground/10 bg-card p-5 shadow-xs sm:p-6"
+              >
+                <header>
                   <div className="mb-2 flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between sm:gap-3">
                     <Badge variant={server.badgeVariant}>{server.name}</Badge>
                     <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground">
@@ -63,19 +64,19 @@ export default function Home() {
                       Java版 / 統合版 対応
                     </span>
                   </div>
-                  <CardTitle className="flex items-center gap-2 text-xl">
+                  <h3 className="flex items-center gap-2 text-xl font-semibold">
                     <Icon className="size-5" />
                     {server.name}
-                  </CardTitle>
-                  <CardDescription>{server.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
+                  </h3>
+                  <p className="mt-1 text-sm text-muted-foreground">{server.description}</p>
+                </header>
+                <div className="mt-5">
                   <div className="rounded-xl border bg-background px-4 py-3">
                     <p className="text-xs text-muted-foreground">サーバアドレス</p>
                     <p className="mt-1 break-all font-mono text-sm">{server.address}</p>
                   </div>
-                </CardContent>
-                <CardFooter className="gap-2">
+                </div>
+                <div className="mt-5 flex gap-2">
                   <a
                     className={cn(buttonVariants(), "w-full sm:w-auto")}
                     href={`minecraft://?addExternalServer=${server.name}|${server.address}`}
@@ -83,8 +84,8 @@ export default function Home() {
                     Minecraft で開く
                     <ExternalLink className="size-4" />
                   </a>
-                </CardFooter>
-              </Card>
+                </div>
+              </article>
             );
           })}
         </section>
