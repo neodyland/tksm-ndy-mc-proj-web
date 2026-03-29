@@ -20,12 +20,12 @@ jobs:
         uses: docker/login-action@v3
         with:
           registry: git.neody.ad.jp
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITEA_TOKEN }}
+          username: tuna2134
+          password: ${{ secrets.GIT_PASSWORD }}
       - name: Build and push image
         uses: docker/build-push-action@v6
         with:
           context: .
           push: true
           tags: |
-            git.neody.ad.jp/${{ github.repository }}
+            git.neody.ad.jp/neodyland/tksm-ndy-mc-proj-web
