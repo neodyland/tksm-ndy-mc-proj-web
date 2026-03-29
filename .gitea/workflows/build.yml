@@ -21,7 +21,7 @@ jobs:
         with:
           registry: git.neody.ad.jp
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ secrets.GITEA_TOKEN }}
       - name: Build and push image
         uses: docker/build-push-action@v6
         with:
