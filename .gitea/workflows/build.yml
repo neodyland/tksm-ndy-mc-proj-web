@@ -29,3 +29,4 @@ jobs:
           push: true
           tags: |
             git.neody.ad.jp/neodyland/tksm-ndy-mc-proj-web
+          file: caddy/Dockerfile
