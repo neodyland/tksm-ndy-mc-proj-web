@@ -36,16 +36,16 @@ export default function Home() {
   return (
     <div className="relative flex min-h-full flex-1 flex-col overflow-x-clip bg-background">
       <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[380px] bg-gradient-to-b from-emerald-200/40 via-sky-200/25 to-transparent blur-3xl dark:from-emerald-500/20 dark:via-sky-500/20" />
-      <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-10 px-4 py-10 sm:px-8 sm:py-14">
+      <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-8 px-4 py-8 sm:gap-10 sm:px-8 sm:py-14">
         <section className="rounded-3xl border bg-card/70 p-6 shadow-sm backdrop-blur sm:p-10">
-          <Badge variant="outline" className="mb-4">
+          <Badge variant="outline" className="mb-4 max-w-full text-[11px] sm:text-xs">
             Takasumi-Neodyマイクラサーバプロジェクト接続ガイド
           </Badge>
           <h1 className="text-3xl font-semibold tracking-tight sm:text-5xl">
             Minecraft サーバへ接続する
           </h1>
           <p className="mt-4 max-w-3xl text-sm leading-7 text-muted-foreground sm:text-base">
-            サーバー追加画面で下記アドレスを入力してください。Java Edition と
+            サーバー追加画面で下記アドレスを入力してください。Java版 と
             統合版のどちらにも対応しています。
           </p>
         </section>
@@ -56,11 +56,11 @@ export default function Home() {
             return (
               <Card key={server.name} className="border-foreground/10">
                 <CardHeader>
-                  <div className="mb-2 flex items-center justify-between gap-3">
+                  <div className="mb-2 flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between sm:gap-3">
                     <Badge variant={server.badgeVariant}>{server.name}</Badge>
                     <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground">
                       <Wifi className="size-3.5" />
-                      Java / 統合版 対応
+                      Java版 / 統合版 対応
                     </span>
                   </div>
                   <CardTitle className="flex items-center gap-2 text-xl">
@@ -93,8 +93,8 @@ export default function Home() {
           <h2 className="text-xl font-semibold">接続手順</h2>
           <Separator className="my-4" />
           <ol className="space-y-3 text-sm leading-7 sm:text-base">
-            <li>1. Minecraft（Java Edition または統合版）を起動する。</li>
-            <li>2. サーバー追加画面を開く（Java: マルチプレイ / 統合版: サーバー）。</li>
+            <li>1. Minecraft（Java版 または統合版）を起動する。</li>
+            <li>2. サーバー追加画面を開く（Java版: マルチプレイ / 統合版: サーバー）。</li>
             <li>3. 接続したい鯖のサーバアドレスを入力して保存する。</li>
             <li>4. 一覧からサーバを選んで接続する。</li>
           </ol>
