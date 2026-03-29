@@ -10,7 +10,7 @@ RUN bun run build
 
 FROM caddy:latest
 
-WORKDIR /app
+WORKDIR /srv
 
-COPY --from=builder /app/out ./
 COPY caddy/Caddyfile /etc/caddy/Caddyfile
+COPY --from=builder /app/out ./

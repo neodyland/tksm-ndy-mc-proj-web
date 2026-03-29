@@ -1,0 +1,4 @@
+mc.neody.ad.jp {
+    root /srv
+    file_server
+}
