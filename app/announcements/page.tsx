@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getAllAnnouncements } from "@/lib/announcements";
 
 export const metadata = {
@@ -26,22 +25,20 @@ export default async function AnnouncementsPage() {
 
       <section className="grid gap-4">
         {announcements.map((item) => (
-          <Card key={item.slug} className="border-foreground/10">
-            <CardHeader>
+          <article key={item.slug} className="rounded-2xl border border-foreground/10 bg-card p-5 shadow-xs sm:p-6">
+            <header>
               <p className="text-xs text-muted-foreground">{item.date}</p>
-              <CardTitle className="text-xl">
+              <h2 className="mt-1 text-xl font-semibold">
                 <Link
                   href={`/announcements/${item.slug}`}
                   className="underline-offset-4 hover:underline"
                 >
                   {item.title}
                 </Link>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-muted-foreground">{item.summary}</p>
-            </CardContent>
-          </Card>
+              </h2>
+            </header>
+            <p className="mt-3 text-sm text-muted-foreground">{item.summary}</p>
+          </article>
         ))}
       </section>
     </div>
