@@ -2,6 +2,8 @@ import type { MetadataRoute } from "next";
 
 import { getAllAnnouncements } from "@/lib/announcements";
 
+export const dynamic = "force-static";
+
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ??
   process.env.SITE_URL ??
