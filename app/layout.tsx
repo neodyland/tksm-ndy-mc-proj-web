@@ -5,38 +5,46 @@ import { cn } from "@/lib/utils";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+	variable: "--font-geist-sans",
+	subsets: ["latin"],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+	variable: "--font-geist-mono",
+	subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "Takasumi-Neodyマイクラサーバプロジェクト接続ガイド",
-  description: "Takasumi-Neodyマイクラサーバプロジェクト（サバイバル鯖・建築鯖）への接続方法とサーバアドレスを案内します。",
+	title: "Takasumi-Neodyマイクラサーバプロジェクト接続ガイド",
+	description:
+		"Takasumi-Neodyマイクラサーバプロジェクト（サバイバル鯖・建築鯖）への接続方法とサーバアドレスを案内します。",
 };
 
 export default function RootLayout({
-  children,
+	children,
 }: Readonly<{
-  children: React.ReactNode;
+	children: React.ReactNode;
 }>) {
-  return (
-    <html
-      lang="ja"
-      className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", inter.variable)}
-    >
-      <body className="min-h-full flex flex-col">
-        <SiteHeader />
-        {children}
-        <SiteFooter />
-      </body>
-    </html>
-  );
+	return (
+		<html
+			lang="ja"
+			className={cn(
+				"h-full",
+				"antialiased",
+				geistSans.variable,
+				geistMono.variable,
+				"font-sans",
+				inter.variable,
+			)}
+		>
+			<body className="min-h-full flex flex-col">
+				<SiteHeader />
+				{children}
+				<SiteFooter />
+			</body>
+		</html>
+	);
 }
